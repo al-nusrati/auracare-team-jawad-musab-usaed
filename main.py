@@ -11,11 +11,29 @@ def triage_patient(name, heart_rate, temperature):
     else:
         level = "STABLE"
     return {"patient": name, "level": level}
+    
+# Doctor Schedule Lookup
+DOCTOR_SCHEDULE = {
+    "Dr. Smith": ["Mon", "Wed", "Fri"],
+    "Dr. Patel": ["Tue", "Thu"],
+    "Dr. Lee": ["Mon", "Tue", "Thu", "Fri"],
+    "Dr. Garcia": ["Wed", "Fri"],
+}
 
+def get_doctor_schedule(doctor_name):
+    """Return the available days for a given doctor."""
+    schedule = DOCTOR_SCHEDULE.get(doctor_name)
+    if schedule:
+        return f"{doctor_name} is available on: {', '.join(schedule)}"
+    return f"No schedule found for {doctor_name}."
 
-def main():
-    print(f"AuraCare v{APP_VERSION} running")
-
+def list_all_schedules():
+    """Print the full schedule for all doctors."""
+    for doctor, days in DOCTOR_SCHEDULE.items():
+        print(f"{doctor}: {', '.join(days)}")
 
 if __name__ == "__main__":
-    main()
+    print(f"AuraCare v{APP_VERSION} running")
+    print(get_doctor_schedule("Dr. Smith"))
+    list_all_schedules()
+    
