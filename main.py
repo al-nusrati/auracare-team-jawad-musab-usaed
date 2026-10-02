@@ -1,5 +1,16 @@
-APP_VERSION = "1.0.0"
-MODULES_ENABLED = []
+APP_VERSION = "1.1.0"
+MODULES_ENABLED = ["triage"]
+
+
+def triage_patient(name, heart_rate, temperature):
+    """Assign a triage level based on patient vitals."""
+    if heart_rate > 120 or temperature > 39.5:
+        level = "CRITICAL"
+    elif heart_rate > 100 or temperature > 38.0:
+        level = "URGENT"
+    else:
+        level = "STABLE"
+    return {"patient": name, "level": level}
 
 
 def main():
