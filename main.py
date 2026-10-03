@@ -1,4 +1,4 @@
-APP_VERSION = "1.1.0"
+APP_VERSION = "2.2.0"
 MODULES_ENABLED = ["triage", "schedule"]
 
 # Doctor Schedule Lookup Data
